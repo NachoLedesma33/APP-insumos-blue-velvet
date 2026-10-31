@@ -9,6 +9,7 @@ import ProductosPage from './components/ProductosPage'
 import StockPage from './components/StockPage'
 import DashboardPage from './components/DashboardPage'
 import ReportesPage from './components/ReportesPage'
+import ConfigPage from './components/ConfigPage'
 
 interface MateriaPrima extends Entity {
   name: string
@@ -21,7 +22,7 @@ interface MateriaPrima extends Entity {
 const repo = new LocalStorageRepository<MateriaPrima>('materias-primas')
 
 export default function App() {
-  const [tab, setTab] = useState<'dashboard' | 'calc' | 'mp' | 'insumos' | 'recetas' | 'productos' | 'stock' | 'reportes'>('dashboard')
+  const [tab, setTab] = useState<'dashboard' | 'calc' | 'mp' | 'insumos' | 'recetas' | 'productos' | 'stock' | 'reportes' | 'config'>('dashboard')
 
   // calculator state
   const [price, setPrice] = useState('1800')
@@ -80,6 +81,7 @@ export default function App() {
         <button className={`rounded px-3 py-1 ${tab === 'productos' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('productos')}>Productos</button>
         <button className={`rounded px-3 py-1 ${tab === 'stock' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('stock')}>Stock</button>
         <button className={`rounded px-3 py-1 ${tab === 'reportes' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('reportes')}>Reportes</button>
+        <button className={`rounded px-3 py-1 ${tab === 'config' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('config')}>Configuración</button>
       </nav>
 
       {tab === 'dashboard' && <DashboardPage />}
@@ -106,6 +108,7 @@ export default function App() {
       {tab === 'productos' && <ProductosPage />}
       {tab === 'stock' && <StockPage />}
       {tab === 'reportes' && <ReportesPage />}
+      {tab === 'config' && <ConfigPage />}
       {tab === 'mp' && (
         <>
           <form onSubmit={addMp} className="mt-4 grid gap-3 md:grid-cols-5">
