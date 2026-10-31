@@ -41,6 +41,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.dark body {
+  color: var(--color-cream-100);
+  background-color: var(--color-navy-900);
+  background-image: linear-gradient(rgba(8, 17, 42, 0.9), rgba(8, 17, 42, 0.95)), url('/images/Blue-velvet-background.jpg');
+}
+
+.dark .bg-white { background-color: var(--color-navy-700) !important; }
+.dark .bg-silver-100 { background-color: var(--color-navy-800) !important; }
+.dark .bg-silver-200 { background-color: var(--color-navy-600) !important; }
+.dark .text-navy-800 { color: var(--color-cream-100) !important; }
+.dark .text-navy-700 { color: var(--color-cream-200) !important; }
+.dark .text-silver-600 { color: var(--color-silver-300) !important; }
+.dark .text-silver-500 { color: var(--color-silver-300) !important; }
+.dark .border-silver-200 { border-color: var(--color-navy-600) !important; }
+.dark input, .dark select, .dark textarea { background-color: var(--color-navy-800); color: var(--color-cream-100); border-color: var(--color-navy-600); }
+
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   color: var(--color-navy-800);

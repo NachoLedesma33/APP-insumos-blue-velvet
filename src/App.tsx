@@ -26,6 +26,11 @@ const repo = new LocalStorageRepository<MateriaPrima>('materias-primas')
 
 export default function App() {
   const [tab, setTab] = useState<'dashboard' | 'calc' | 'mp' | 'insumos' | 'recetas' | 'productos' | 'stock' | 'reportes' | 'config' | 'produccion' | 'precios' | 'compras'>('dashboard')
+  const [dark, setDark] = useState(() => localStorage.getItem('costita.theme') === 'dark')
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', dark)
+    localStorage.setItem('costita.theme', dark ? 'dark' : 'light')
+  }, [dark])
 
   // calculator state
   const [price, setPrice] = useState('1800')
@@ -75,8 +80,15 @@ export default function App() {
   return (
     <main className="mx-auto max-w-7xl p-8 font-body min-h-screen">
       <div className="rounded-3xl bg-white/80 backdrop-blur-md p-8 shadow-xl border border-silver-200">
-        <h1 className="text-4xl font-semibold text-navy-800">Blue Velvet Insumos</h1>
-        <p className="text-sm text-silver-600 mt-1">Gestión de costos, recetas y stock</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-4xl font-semibold text-navy-800">Blue Velvet Insumos</h1>
+            <p className="text-sm text-silver-600 mt-1">Gestión de costos, recetas y stock</p>
+          </div>
+          <button className="rounded-xl bg-silver-100 px-3 py-2 text-sm" onClick={() => setDark((d) => !d)}>
+            {dark ? 'Modo claro' : 'Modo oscuro'}
+          </button>
+        </div>
         <nav className="mt-6 flex flex-wrap gap-2">
         <button className={`rounded-xl px-3 py-1 ${tab === 'dashboard' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('dashboard')}>Inicio</button>
         <button className={`rounded-xl px-3 py-1 ${tab === 'calc' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('calc')}>Calculadora</button>
