@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ingredientCost, unitCostPerUnit, priceByMarkup, formatARS } from './domain/costing'
+import { fetchIpcMonthly } from './lib/ipc'
 
 export default function App() {
   const [price, setPrice] = useState('1800')
@@ -8,10 +9,17 @@ export default function App() {
   const [used, setUsed] = useState('250')
   const [yieldQty, setYieldQty] = useState('12')
   const [markup, setMarkup] = useState('40')
+  const [ipc, setIpc] = useState<{ date: string; value: number } | null>(null)
 
   const cost = ingredientCost(used, 'g', price, qty, unit)
   const unitCost = unitCostPerUnit(cost, yieldQty)
   const salePrice = priceByMarkup(unitCost, markup)
+
+  useEffect(() => {
+    fetchIpcMonthly(1).then((pts) => {
+      if (pts.length) setIpc(pts[pts.length - 1])
+    }).catch(() => setIpc(null))
+  }, [])
 
   return (
     <main className="mx-auto max-w-3xl p-6 font-sans">
@@ -47,6 +55,7 @@ export default function App() {
         <p>Costo ingrediente: {formatARS(cost)}</p>
         <p>Costo por unidad: {formatARS(unitCost)}</p>
         <p>Precio sugerido: {formatARS(salePrice)}</p>
+        {ipc && <p className="text-sm text-slate-500">IPC último ({ipc.date}): {ipc.value.toFixed(2)}</p>}
       </section>
     </main>
   )
