@@ -34,8 +34,10 @@ export class MemoryStorage implements Storage {
 }
 
 export class LocalStorageRepository<T extends Entity> implements Repository<T> {
+  private readonly key: string
   private readonly storage: Storage
-  constructor(private readonly key: string, storage?: Storage) {
+  constructor(key: string, storage?: Storage) {
+    this.key = key
     this.storage = storage ?? (typeof localStorage !== 'undefined' ? localStorage : new MemoryStorage())
   }
 
