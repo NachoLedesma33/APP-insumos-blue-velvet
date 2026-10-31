@@ -11,6 +11,7 @@ import DashboardPage from './components/DashboardPage'
 import ReportesPage from './components/ReportesPage'
 import ConfigPage from './components/ConfigPage'
 import ProduccionPage from './components/ProduccionPage'
+import PreciosPage from './components/PreciosPage'
 
 interface MateriaPrima extends Entity {
   name: string
@@ -23,7 +24,7 @@ interface MateriaPrima extends Entity {
 const repo = new LocalStorageRepository<MateriaPrima>('materias-primas')
 
 export default function App() {
-  const [tab, setTab] = useState<'dashboard' | 'calc' | 'mp' | 'insumos' | 'recetas' | 'productos' | 'stock' | 'reportes' | 'config' | 'produccion'>('dashboard')
+  const [tab, setTab] = useState<'dashboard' | 'calc' | 'mp' | 'insumos' | 'recetas' | 'productos' | 'stock' | 'reportes' | 'config' | 'produccion' | 'precios'>('dashboard')
 
   // calculator state
   const [price, setPrice] = useState('1800')
@@ -84,6 +85,7 @@ export default function App() {
         <button className={`rounded px-3 py-1 ${tab === 'reportes' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('reportes')}>Reportes</button>
         <button className={`rounded px-3 py-1 ${tab === 'config' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('config')}>Configuración</button>
         <button className={`rounded px-3 py-1 ${tab === 'produccion' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('produccion')}>Producción</button>
+        <button className={`rounded px-3 py-1 ${tab === 'precios' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('precios')}>Precios</button>
       </nav>
 
       {tab === 'dashboard' && <DashboardPage />}
@@ -112,6 +114,7 @@ export default function App() {
       {tab === 'reportes' && <ReportesPage />}
       {tab === 'config' && <ConfigPage />}
       {tab === 'produccion' && <ProduccionPage />}
+      {tab === 'precios' && <PreciosPage />}
       {tab === 'mp' && (
         <>
           <form onSubmit={addMp} className="mt-4 grid gap-3 md:grid-cols-5">
