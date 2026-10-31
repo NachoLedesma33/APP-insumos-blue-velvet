@@ -7,6 +7,7 @@ import InsumosPage from './components/InsumosPage'
 import RecetasPage from './components/RecetasPage'
 import ProductosPage from './components/ProductosPage'
 import StockPage from './components/StockPage'
+import DashboardPage from './components/DashboardPage'
 
 interface MateriaPrima extends Entity {
   name: string
@@ -19,7 +20,7 @@ interface MateriaPrima extends Entity {
 const repo = new LocalStorageRepository<MateriaPrima>('materias-primas')
 
 export default function App() {
-  const [tab, setTab] = useState<'calc' | 'mp' | 'insumos' | 'recetas' | 'productos' | 'stock'>('calc')
+  const [tab, setTab] = useState<'dashboard' | 'calc' | 'mp' | 'insumos' | 'recetas' | 'productos' | 'stock'>('dashboard')
 
   // calculator state
   const [price, setPrice] = useState('1800')
@@ -69,7 +70,8 @@ export default function App() {
   return (
     <main className="mx-auto max-w-4xl p-6 font-sans">
       <h1 className="text-2xl font-semibold text-slate-900">Costita</h1>
-      <nav className="mt-4 flex gap-2">
+      <nav className="mt-4 flex flex-wrap gap-2">
+        <button className={`rounded px-3 py-1 ${tab === 'dashboard' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('dashboard')}>Inicio</button>
         <button className={`rounded px-3 py-1 ${tab === 'calc' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('calc')}>Calculadora</button>
         <button className={`rounded px-3 py-1 ${tab === 'mp' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('mp')}>Materias primas</button>
         <button className={`rounded px-3 py-1 ${tab === 'insumos' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('insumos')}>Insumos</button>
@@ -78,6 +80,7 @@ export default function App() {
         <button className={`rounded px-3 py-1 ${tab === 'stock' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('stock')}>Stock</button>
       </nav>
 
+      {tab === 'dashboard' && <DashboardPage />}
       {tab === 'calc' && (
         <>
           <section className="mt-4 grid gap-3">
