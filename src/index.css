@@ -44,18 +44,23 @@ body {
 .dark body {
   color: var(--color-cream-100);
   background-color: var(--color-navy-900);
-  background-image: linear-gradient(rgba(8, 17, 42, 0.9), rgba(8, 17, 42, 0.95)), url('/images/Blue-velvet-background.jpg');
+  background-image: linear-gradient(rgba(8, 17, 42, 0.92), rgba(8, 17, 42, 0.97)), url('/images/Blue-velvet-background.jpg');
 }
+
+.dark * { border-color: var(--color-navy-600); }
 
 .dark .bg-white { background-color: var(--color-navy-700) !important; }
 .dark .bg-silver-100 { background-color: var(--color-navy-800) !important; }
 .dark .bg-silver-200 { background-color: var(--color-navy-600) !important; }
+.dark .bg-navy-800 { background-color: var(--color-cream-500) !important; color: var(--color-navy-900) !important; }
 .dark .text-navy-800 { color: var(--color-cream-100) !important; }
 .dark .text-navy-700 { color: var(--color-cream-200) !important; }
 .dark .text-silver-600 { color: var(--color-silver-300) !important; }
 .dark .text-silver-500 { color: var(--color-silver-300) !important; }
+.dark .text-white { color: var(--color-navy-900) !important; }
 .dark .border-silver-200 { border-color: var(--color-navy-600) !important; }
 .dark input, .dark select, .dark textarea { background-color: var(--color-navy-800); color: var(--color-cream-100); border-color: var(--color-navy-600); }
+.dark .rounded-xl.bg-navy-800 { box-shadow: 0 1px 2px 0 rgb(0 0 0 / .3); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
