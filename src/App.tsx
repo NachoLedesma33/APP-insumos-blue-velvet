@@ -3,6 +3,7 @@ import { ingredientCost, unitCostPerUnit, priceByMarkup, formatARS, unitCost } f
 import { fetchIpcMonthly } from './lib/ipc'
 import { LocalStorageRepository, newEntity, type Entity } from './data/repository'
 import type { Unit } from './domain/costing'
+import InsumosPage from './components/InsumosPage'
 
 interface MateriaPrima extends Entity {
   name: string
@@ -15,7 +16,7 @@ interface MateriaPrima extends Entity {
 const repo = new LocalStorageRepository<MateriaPrima>('materias-primas')
 
 export default function App() {
-  const [tab, setTab] = useState<'calc' | 'mp'>('calc')
+  const [tab, setTab] = useState<'calc' | 'mp' | 'insumos'>('calc')
 
   // calculator state
   const [price, setPrice] = useState('1800')
@@ -68,6 +69,7 @@ export default function App() {
       <nav className="mt-4 flex gap-2">
         <button className={`rounded px-3 py-1 ${tab === 'calc' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('calc')}>Calculadora</button>
         <button className={`rounded px-3 py-1 ${tab === 'mp' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('mp')}>Materias primas</button>
+        <button className={`rounded px-3 py-1 ${tab === 'insumos' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('insumos')}>Insumos</button>
       </nav>
 
       {tab === 'calc' && (
@@ -88,6 +90,7 @@ export default function App() {
         </>
       )}
 
+      {tab === 'insumos' && <InsumosPage />}
       {tab === 'mp' && (
         <>
           <form onSubmit={addMp} className="mt-4 grid gap-3 md:grid-cols-5">
