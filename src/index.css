@@ -34,6 +34,10 @@ body {
   font-family: var(--font-body);
   color: var(--color-navy-800);
   background-color: var(--color-cream-50);
+  background-image: linear-gradient(rgba(253, 252, 250, 0.88), rgba(253, 252, 250, 0.92)), url('/images/Blue-velvet-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
 }
 

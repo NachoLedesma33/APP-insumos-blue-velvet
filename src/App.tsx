@@ -73,10 +73,11 @@ export default function App() {
   }
 
   return (
-    <main className="mx-auto max-w-6xl p-6 font-body bg-cream-50 min-h-screen">
-      <h1 className="text-3xl font-semibold text-navy-800">Blue Velvet Insumos</h1>
-      <p className="text-sm text-silver-500">Gestión de costos, recetas y stock</p>
-      <nav className="mt-4 flex flex-wrap gap-2">
+    <main className="mx-auto max-w-7xl p-8 font-body min-h-screen">
+      <div className="rounded-3xl bg-white/80 backdrop-blur-md p-8 shadow-xl border border-silver-200">
+        <h1 className="text-4xl font-semibold text-navy-800">Blue Velvet Insumos</h1>
+        <p className="text-sm text-silver-600 mt-1">Gestión de costos, recetas y stock</p>
+        <nav className="mt-6 flex flex-wrap gap-2">
         <button className={`rounded-xl px-3 py-1 ${tab === 'dashboard' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('dashboard')}>Inicio</button>
         <button className={`rounded-xl px-3 py-1 ${tab === 'calc' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('calc')}>Calculadora</button>
         <button className={`rounded-xl px-3 py-1 ${tab === 'mp' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('mp')}>Materias primas</button>
@@ -148,6 +149,7 @@ export default function App() {
           </table>
         </>
       )}
+      </div>
     </main>
   )
 }
