@@ -31,12 +31,12 @@ export default function ReportesPage() {
   }, [])
 
   return (
-    <div className="mt-4 space-y-6">
-      <button className="rounded-xl bg-navy-800 px-3 py-3 text-white" onClick={() => downloadCsv('materias-primas.csv', toCsv(mps as any, ['name', 'price', 'quantity', 'unit', 'stock']))}>Exportar materias primas</button>
-      <button className="rounded-xl bg-navy-800 px-3 py-3 text-white" onClick={() => downloadCsv('insumos.csv', toCsv(ins as any, ['name', 'price', 'quantity', 'unit', 'stock']))}>Exportar insumos</button>
-      <button className="rounded-xl bg-navy-800 px-3 py-3 text-white" onClick={() => downloadCsv('recetas.csv', toCsv(recs as any, ['name', 'yieldQty']))}>Exportar recetas</button>
-      <button className="rounded-xl bg-navy-800 px-3 py-3 text-white" onClick={() => downloadCsv('productos.csv', toCsv(prods as any, ['name', 'method', 'targetPercent', 'salePrice']))}>Exportar productos</button>
-      <button className="rounded-xl bg-navy-800 px-3 py-3 text-white" onClick={() => downloadCsv('movimientos.csv', toCsv(movs as any, ['articleType', 'type', 'quantity', 'note', 'createdAt']))}>Exportar movimientos</button>
+    <div className="mt-4 flex flex-col gap-4">
+      <button className="rounded-xl bg-navy-800 w-full px-4 py-3 text-white" onClick={() => downloadCsv('materias-primas.csv', toCsv(mps as any, ['name', 'price', 'quantity', 'unit', 'stock']))}>Exportar materias primas</button>
+      <button className="rounded-xl bg-navy-800 w-full px-4 py-3 text-white" onClick={() => downloadCsv('insumos.csv', toCsv(ins as any, ['name', 'price', 'quantity', 'unit', 'stock']))}>Exportar insumos</button>
+      <button className="rounded-xl bg-navy-800 w-full px-4 py-3 text-white" onClick={() => downloadCsv('recetas.csv', toCsv(recs as any, ['name', 'yieldQty']))}>Exportar recetas</button>
+      <button className="rounded-xl bg-navy-800 w-full px-4 py-3 text-white" onClick={() => downloadCsv('productos.csv', toCsv(prods as any, ['name', 'method', 'targetPercent', 'salePrice']))}>Exportar productos</button>
+      <button className="rounded-xl bg-navy-800 w-full px-4 py-3 text-white" onClick={() => downloadCsv('movimientos.csv', toCsv(movs as any, ['articleType', 'type', 'quantity', 'note', 'createdAt']))}>Exportar movimientos</button>
     </div>
   )
 }
