@@ -12,6 +12,7 @@ import ReportesPage from './components/ReportesPage'
 import ConfigPage from './components/ConfigPage'
 import ProduccionPage from './components/ProduccionPage'
 import PreciosPage from './components/PreciosPage'
+import ComprasPage from './components/ComprasPage'
 
 interface MateriaPrima extends Entity {
   name: string
@@ -24,7 +25,7 @@ interface MateriaPrima extends Entity {
 const repo = new LocalStorageRepository<MateriaPrima>('materias-primas')
 
 export default function App() {
-  const [tab, setTab] = useState<'dashboard' | 'calc' | 'mp' | 'insumos' | 'recetas' | 'productos' | 'stock' | 'reportes' | 'config' | 'produccion' | 'precios'>('dashboard')
+  const [tab, setTab] = useState<'dashboard' | 'calc' | 'mp' | 'insumos' | 'recetas' | 'productos' | 'stock' | 'reportes' | 'config' | 'produccion' | 'precios' | 'compras'>('dashboard')
 
   // calculator state
   const [price, setPrice] = useState('1800')
@@ -86,6 +87,7 @@ export default function App() {
         <button className={`rounded px-3 py-1 ${tab === 'config' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('config')}>Configuración</button>
         <button className={`rounded px-3 py-1 ${tab === 'produccion' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('produccion')}>Producción</button>
         <button className={`rounded px-3 py-1 ${tab === 'precios' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('precios')}>Precios</button>
+        <button className={`rounded px-3 py-1 ${tab === 'compras' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('compras')}>Compras</button>
       </nav>
 
       {tab === 'dashboard' && <DashboardPage />}
@@ -115,6 +117,7 @@ export default function App() {
       {tab === 'config' && <ConfigPage />}
       {tab === 'produccion' && <ProduccionPage />}
       {tab === 'precios' && <PreciosPage />}
+      {tab === 'compras' && <ComprasPage />}
       {tab === 'mp' && (
         <>
           <form onSubmit={addMp} className="mt-4 grid gap-3 md:grid-cols-5">
