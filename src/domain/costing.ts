@@ -113,8 +113,9 @@ export function marginOnSale(price: Decimal, cost: Decimal): Decimal {
   return price.minus(cost).div(price).mul(100)
 }
 
-export function formatARS(value: Decimal): string {
-  const fixed = value.toDecimalPlaces(2, Decimal.ROUND_HALF_UP).toString()
+export function formatARS(value: Decimal | number | string): string {
+  const d = value instanceof Decimal ? value : new Decimal(value)
+  const fixed = d.toDecimalPlaces(2, Decimal.ROUND_HALF_UP).toString()
   const [intPart, decPart = ''] = fixed.split('.')
   const grouped = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
   return `$ ${grouped},${decPart.padEnd(2, '0')}`
