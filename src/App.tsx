@@ -5,6 +5,7 @@ import { LocalStorageRepository, newEntity, type Entity } from './data/repositor
 import type { Unit } from './domain/costing'
 import InsumosPage from './components/InsumosPage'
 import RecetasPage from './components/RecetasPage'
+import ProductosPage from './components/ProductosPage'
 
 interface MateriaPrima extends Entity {
   name: string
@@ -17,7 +18,7 @@ interface MateriaPrima extends Entity {
 const repo = new LocalStorageRepository<MateriaPrima>('materias-primas')
 
 export default function App() {
-  const [tab, setTab] = useState<'calc' | 'mp' | 'insumos' | 'recetas'>('calc')
+  const [tab, setTab] = useState<'calc' | 'mp' | 'insumos' | 'recetas' | 'productos'>('calc')
 
   // calculator state
   const [price, setPrice] = useState('1800')
@@ -72,6 +73,7 @@ export default function App() {
         <button className={`rounded px-3 py-1 ${tab === 'mp' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('mp')}>Materias primas</button>
         <button className={`rounded px-3 py-1 ${tab === 'insumos' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('insumos')}>Insumos</button>
         <button className={`rounded px-3 py-1 ${tab === 'recetas' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('recetas')}>Recetas</button>
+        <button className={`rounded px-3 py-1 ${tab === 'productos' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('productos')}>Productos</button>
       </nav>
 
       {tab === 'calc' && (
@@ -94,6 +96,7 @@ export default function App() {
 
       {tab === 'insumos' && <InsumosPage />}
       {tab === 'recetas' && <RecetasPage />}
+      {tab === 'productos' && <ProductosPage />}
       {tab === 'mp' && (
         <>
           <form onSubmit={addMp} className="mt-4 grid gap-3 md:grid-cols-5">

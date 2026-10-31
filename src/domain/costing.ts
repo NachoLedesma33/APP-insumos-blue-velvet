@@ -91,17 +91,19 @@ export function unitCostPerUnit(lot: Decimal, yieldQty: number | string | Decima
   return lot.div(y)
 }
 
-export function priceByMarkup(cost: Decimal, markupPercent: number | string | Decimal): Decimal {
+export function priceByMarkup(cost: Decimal | number | string, markupPercent: number | string | Decimal): Decimal {
+  const c = cost instanceof Decimal ? cost : new Decimal(cost)
   const m = new Decimal(markupPercent)
   if (m.lt(0)) throw new Error('recargo negativo')
-  return cost.mul(new Decimal(1).plus(m.div(100)))
+  return c.mul(new Decimal(1).plus(m.div(100)))
 }
 
-export function priceByMargin(cost: Decimal, marginPercent: number | string | Decimal): Decimal {
+export function priceByMargin(cost: Decimal | number | string, marginPercent: number | string | Decimal): Decimal {
+  const c = cost instanceof Decimal ? cost : new Decimal(cost)
   const m = new Decimal(marginPercent)
   if (m.lt(0)) throw new Error('margen negativo')
   if (m.gte(100)) throw new Error('margen debe ser menor a 100%')
-  return cost.div(new Decimal(1).minus(m.div(100)))
+  return c.div(new Decimal(1).minus(m.div(100)))
 }
 
 export function profitPerUnit(price: Decimal, cost: Decimal): Decimal {
