@@ -57,19 +57,19 @@ export default function StockPage() {
   return (
     <>
       <form onSubmit={submit} className="mt-4 grid gap-3 md:grid-cols-6">
-        <select className="rounded border px-3 py-2" value={articleType} onChange={(e) => { setArticleType(e.target.value as any); setArticleId('') }}>
+        <select className="rounded-xl border px-3 py-2" value={articleType} onChange={(e) => { setArticleType(e.target.value as any); setArticleId('') }}>
           <option value="mp">Materia prima</option><option value="insumo">Insumo</option>
         </select>
-        <select className="rounded border px-3 py-2" value={articleId} onChange={(e) => setArticleId(e.target.value)} required>
+        <select className="rounded-xl border px-3 py-2" value={articleId} onChange={(e) => setArticleId(e.target.value)} required>
           <option value="">Artículo</option>
           {articles.map((a) => <option key={a.id} value={a.id}>{a.name}</option>)}
         </select>
-        <select className="rounded border px-3 py-2" value={type} onChange={(e) => setType(e.target.value as any)}>
+        <select className="rounded-xl border px-3 py-2" value={type} onChange={(e) => setType(e.target.value as any)}>
           <option value="ingreso">Ingreso</option><option value="ajuste">Ajuste</option><option value="merma">Merma</option>
         </select>
-        <input className="rounded border px-3 py-2" placeholder="Cantidad" type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} required />
-        <input className="rounded border px-3 py-2" placeholder="Motivo" value={note} onChange={(e) => setNote(e.target.value)} />
-        <button className="rounded bg-slate-900 px-3 py-2 text-white" type="submit">Registrar</button>
+        <input className="rounded-xl border px-3 py-2" placeholder="Cantidad" type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} required />
+        <input className="rounded-xl border px-3 py-2" placeholder="Motivo" value={note} onChange={(e) => setNote(e.target.value)} />
+        <button className="rounded-xl bg-navy-800 px-3 py-2 text-white" type="submit">Registrar</button>
       </form>
 
       <h2 className="mt-6 text-lg font-medium">Stock actual</h2>

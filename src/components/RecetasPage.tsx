@@ -71,20 +71,20 @@ export default function RecetasPage() {
     <>
       <form onSubmit={save} className="mt-4 space-y-3">
         <div className="grid gap-3 md:grid-cols-3">
-          <input className="rounded border px-3 py-2" placeholder="Nombre receta" value={name} onChange={(e) => setName(e.target.value)} required />
-          <input className="rounded border px-3 py-2" placeholder="Rendimiento" type="number" value={yieldQty} onChange={(e) => setYieldQty(e.target.value)} required />
-          <input className="rounded border px-3 py-2" placeholder="Costos adicionales" type="number" value={extraCost} onChange={(e) => setExtraCost(e.target.value)} />
+          <input className="rounded-xl border px-3 py-2" placeholder="Nombre receta" value={name} onChange={(e) => setName(e.target.value)} required />
+          <input className="rounded-xl border px-3 py-2" placeholder="Rendimiento" type="number" value={yieldQty} onChange={(e) => setYieldQty(e.target.value)} required />
+          <input className="rounded-xl border px-3 py-2" placeholder="Costos adicionales" type="number" value={extraCost} onChange={(e) => setExtraCost(e.target.value)} />
         </div>
         <div className="flex flex-wrap gap-2">
-          <select className="rounded border px-3 py-2" value={selMp} onChange={(e) => setSelMp(e.target.value)}>
+          <select className="rounded-xl border px-3 py-2" value={selMp} onChange={(e) => setSelMp(e.target.value)}>
             <option value="">Materia prima</option>
             {mps.map((m) => <option key={m.id} value={m.id}>{m.name}</option>)}
           </select>
-          <input className="rounded border px-3 py-2" placeholder="Cantidad" type="number" value={selQty} onChange={(e) => setSelQty(e.target.value)} />
-          <select className="rounded border px-3 py-2" value={selUnit} onChange={(e) => setSelUnit(e.target.value as Unit)}>
+          <input className="rounded-xl border px-3 py-2" placeholder="Cantidad" type="number" value={selQty} onChange={(e) => setSelQty(e.target.value)} />
+          <select className="rounded-xl border px-3 py-2" value={selUnit} onChange={(e) => setSelUnit(e.target.value as Unit)}>
             <option value="g">g</option><option value="kg">kg</option><option value="ml">ml</option><option value="L">L</option><option value="u">u</option>
           </select>
-          <button type="button" className="rounded bg-slate-200 px-3 py-2" onClick={addIngrediente}>Agregar ingrediente</button>
+          <button type="button" className="rounded-xl bg-silver-200 px-3 py-2" onClick={addIngrediente}>Agregar ingrediente</button>
         </div>
         <ul className="text-sm">
           {ingredientes.map((ing, i) => {
@@ -97,7 +97,7 @@ export default function RecetasPage() {
           <p>Costo lote: {formatARS(lotCost as any)}</p>
           <p>Costo por unidad: {formatARS(unitCost as any)}</p>
         </div>
-        <button className="rounded bg-slate-900 px-3 py-2 text-white" type="submit">Guardar receta</button>
+        <button className="rounded-xl bg-navy-800 px-3 py-2 text-white" type="submit">Guardar receta</button>
       </form>
 
       <table className="mt-6 w-full text-left text-sm">

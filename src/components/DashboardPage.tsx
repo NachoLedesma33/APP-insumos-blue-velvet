@@ -31,26 +31,26 @@ export default function DashboardPage() {
   return (
     <div className="mt-4 space-y-4">
       <div className="grid gap-3 md:grid-cols-4">
-        <div className="rounded border p-4"><p className="text-sm text-slate-500">Materias primas</p><p className="text-2xl font-semibold">{mps.length}</p></div>
-        <div className="rounded border p-4"><p className="text-sm text-slate-500">Insumos</p><p className="text-2xl font-semibold">{ins.length}</p></div>
-        <div className="rounded border p-4"><p className="text-sm text-slate-500">Recetas</p><p className="text-2xl font-semibold">{recetas.length}</p></div>
-        <div className="rounded border p-4"><p className="text-sm text-slate-500">Productos</p><p className="text-2xl font-semibold">{prods.length}</p></div>
+        <div className="rounded-xl border p-4"><p className="text-sm text-silver-500">Materias primas</p><p className="text-2xl font-semibold">{mps.length}</p></div>
+        <div className="rounded-xl border p-4"><p className="text-sm text-silver-500">Insumos</p><p className="text-2xl font-semibold">{ins.length}</p></div>
+        <div className="rounded-xl border p-4"><p className="text-sm text-silver-500">Recetas</p><p className="text-2xl font-semibold">{recetas.length}</p></div>
+        <div className="rounded-xl border p-4"><p className="text-sm text-silver-500">Productos</p><p className="text-2xl font-semibold">{prods.length}</p></div>
       </div>
 
       {lowStock.length > 0 && (
-        <div className="rounded border border-amber-300 bg-amber-50 p-4">
+        <div className="rounded-xl border border-amber-300 bg-amber-50 p-4">
           <p className="font-medium">Stock bajo</p>
           <ul className="mt-2 text-sm">{lowStock.map((a) => <li key={a.id}>{a.name}: {a.stock} (mín {a.stockMin})</li>)}</ul>
         </div>
       )}
       {incomplete.length > 0 && (
-        <div className="rounded border border-red-300 bg-red-50 p-4">
+        <div className="rounded-xl border border-red-300 bg-red-50 p-4">
           <p className="font-medium">Recetas incompletas</p>
           <ul className="mt-2 text-sm">{incomplete.map((r) => <li key={r.id}>{r.name}</li>)}</ul>
         </div>
       )}
       {mps.length === 0 && ins.length === 0 && recetas.length === 0 && (
-        <div className="rounded border p-6 text-center text-slate-500">
+        <div className="rounded-xl border p-6 text-center text-silver-500">
           Empezá cargando una materia prima o insumo.
         </div>
       )}

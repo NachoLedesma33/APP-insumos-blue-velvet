@@ -59,12 +59,12 @@ export default function ProduccionPage() {
   return (
     <>
       <div className="mt-4 grid gap-3 md:grid-cols-3">
-        <select className="rounded border px-3 py-2" value={recetaId} onChange={(e) => setRecetaId(e.target.value)}>
+        <select className="rounded-xl border px-3 py-2" value={recetaId} onChange={(e) => setRecetaId(e.target.value)}>
           <option value="">Receta</option>
           {recetas.map((r) => <option key={r.id} value={r.id}>{r.name}</option>)}
         </select>
-        <input className="rounded border px-3 py-2" type="number" placeholder="Lotes" value={batches} onChange={(e) => setBatches(e.target.value)} />
-        <input className="rounded border px-3 py-2" placeholder="Nota" value={note} onChange={(e) => setNote(e.target.value)} />
+        <input className="rounded-xl border px-3 py-2" type="number" placeholder="Lotes" value={batches} onChange={(e) => setBatches(e.target.value)} />
+        <input className="rounded-xl border px-3 py-2" placeholder="Nota" value={note} onChange={(e) => setNote(e.target.value)} />
       </div>
 
       {receta && (
@@ -77,7 +77,7 @@ export default function ProduccionPage() {
               </li>
             ))}
           </ul>
-          <button className="mt-3 rounded bg-slate-900 px-3 py-2 text-white" onClick={confirm} disabled={insufficient}>
+          <button className="mt-3 rounded-xl bg-navy-800 px-3 py-2 text-white" onClick={confirm} disabled={insufficient}>
             Confirmar producción
           </button>
           {msg && <p className="mt-2 text-sm">{msg}</p>}

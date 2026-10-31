@@ -38,15 +38,15 @@ export default function InsumosPage() {
   return (
     <>
       <form onSubmit={add} className="mt-4 grid gap-3 md:grid-cols-6">
-        <input className="rounded border px-3 py-2" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} required />
-        <input className="rounded border px-3 py-2" placeholder="Precio" type="number" value={price} onChange={(e) => setPrice(e.target.value)} required />
-        <input className="rounded border px-3 py-2" placeholder="Cantidad" type="number" value={qty} onChange={(e) => setQty(e.target.value)} required />
-        <select className="rounded border px-3 py-2" value={unit} onChange={(e) => setUnit(e.target.value as Unit)}>
+        <input className="rounded-xl border px-3 py-2" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} required />
+        <input className="rounded-xl border px-3 py-2" placeholder="Precio" type="number" value={price} onChange={(e) => setPrice(e.target.value)} required />
+        <input className="rounded-xl border px-3 py-2" placeholder="Cantidad" type="number" value={qty} onChange={(e) => setQty(e.target.value)} required />
+        <select className="rounded-xl border px-3 py-2" value={unit} onChange={(e) => setUnit(e.target.value as Unit)}>
           <option value="kg">kg</option><option value="g">g</option><option value="L">L</option><option value="ml">ml</option><option value="u">u</option>
         </select>
-        <input className="rounded border px-3 py-2" placeholder="Stock" type="number" value={stock} onChange={(e) => setStock(e.target.value)} />
-        <input className="rounded border px-3 py-2" placeholder="Stock mín" type="number" value={stockMin} onChange={(e) => setStockMin(e.target.value)} />
-        <button className="rounded bg-slate-900 px-3 py-2 text-white md:col-span-6" type="submit">Agregar insumo</button>
+        <input className="rounded-xl border px-3 py-2" placeholder="Stock" type="number" value={stock} onChange={(e) => setStock(e.target.value)} />
+        <input className="rounded-xl border px-3 py-2" placeholder="Stock mín" type="number" value={stockMin} onChange={(e) => setStockMin(e.target.value)} />
+        <button className="rounded-xl bg-navy-800 px-3 py-2 text-white md:col-span-6" type="submit">Agregar insumo</button>
       </form>
       <table className="mt-6 w-full text-left text-sm">
         <thead><tr><th>Nombre</th><th>Precio</th><th>Cant.</th><th>Unidad</th><th>Costo base</th><th>Stock</th><th>Mín</th></tr></thead>

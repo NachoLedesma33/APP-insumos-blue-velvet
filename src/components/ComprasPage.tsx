@@ -49,25 +49,25 @@ export default function ComprasPage() {
   return (
     <>
       <form onSubmit={submit} className="mt-4 grid gap-3 md:grid-cols-6">
-        <select className="rounded border px-3 py-2" value={type} onChange={(e) => { setType(e.target.value as any); setArticleId('') }}>
+        <select className="rounded-xl border px-3 py-2" value={type} onChange={(e) => { setType(e.target.value as any); setArticleId('') }}>
           <option value="mp">Materia prima</option><option value="insumo">Insumo</option>
         </select>
-        <select className="rounded border px-3 py-2" value={articleId} onChange={(e) => setArticleId(e.target.value)} required>
+        <select className="rounded-xl border px-3 py-2" value={articleId} onChange={(e) => setArticleId(e.target.value)} required>
           <option value="">Artículo</option>
           {items.map((x) => <option key={x.id} value={x.id}>{x.name}</option>)}
         </select>
-        <input className="rounded border px-3 py-2" type="number" placeholder="Cantidad" value={qty} onChange={(e) => setQty(e.target.value)} required />
-        <select className="rounded border px-3 py-2" value={unit} onChange={(e) => setUnit(e.target.value as Unit)}>
+        <input className="rounded-xl border px-3 py-2" type="number" placeholder="Cantidad" value={qty} onChange={(e) => setQty(e.target.value)} required />
+        <select className="rounded-xl border px-3 py-2" value={unit} onChange={(e) => setUnit(e.target.value as Unit)}>
           <option value="kg">kg</option><option value="g">g</option><option value="L">L</option><option value="ml">ml</option><option value="u">u</option>
         </select>
-        <input className="rounded border px-3 py-2" type="number" placeholder="Total pagado" value={total} onChange={(e) => setTotal(e.target.value)} required />
-        <input className="rounded border px-3 py-2" placeholder="Proveedor" value={supplier} onChange={(e) => setSupplier(e.target.value)} />
-        <input className="rounded border px-3 py-2 md:col-span-5" placeholder="Nota/comprobante" value={note} onChange={(e) => setNote(e.target.value)} />
-        <button className="rounded bg-slate-900 px-3 py-2 text-white" type="submit">Registrar compra</button>
+        <input className="rounded-xl border px-3 py-2" type="number" placeholder="Total pagado" value={total} onChange={(e) => setTotal(e.target.value)} required />
+        <input className="rounded-xl border px-3 py-2" placeholder="Proveedor" value={supplier} onChange={(e) => setSupplier(e.target.value)} />
+        <input className="rounded-xl border px-3 py-2 md:col-span-5" placeholder="Nota/comprobante" value={note} onChange={(e) => setNote(e.target.value)} />
+        <button className="rounded-xl bg-navy-800 px-3 py-2 text-white" type="submit">Registrar compra</button>
       </form>
       {msg && <p className="mt-2 text-sm">{msg}</p>}
       {selected && total && qty && (
-        <p className="mt-2 text-sm text-slate-600">
+        <p className="mt-2 text-sm text-silver-600">
           Costo unitario resultante: {Number(total) / Number(toBase(Number(qty), unit))} por unidad base
         </p>
       )}

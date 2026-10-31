@@ -42,16 +42,16 @@ export default function ConfigPage() {
 
   return (
     <div className="mt-4 space-y-4">
-      <p className="text-sm text-slate-600">Moneda: ARS (pesos argentinos).</p>
+      <p className="text-sm text-silver-600">Moneda: ARS (pesos argentinos).</p>
       <div className="flex flex-wrap gap-2">
-        <button className="rounded bg-slate-900 px-3 py-2 text-white" onClick={backup}>Descargar backup JSON</button>
-        <label className="rounded bg-slate-200 px-3 py-2 cursor-pointer">
+        <button className="rounded-xl bg-navy-800 px-3 py-2 text-white" onClick={backup}>Descargar backup JSON</button>
+        <label className="rounded-xl bg-silver-200 px-3 py-2 cursor-pointer">
           Restaurar backup
           <input type="file" accept="application/json" className="hidden" onChange={restore} />
         </label>
-        <button className="rounded bg-red-600 px-3 py-2 text-white" onClick={clearAll}>Borrar datos</button>
+        <button className="rounded-xl bg-red-600 px-3 py-2 text-white" onClick={clearAll}>Borrar datos</button>
       </div>
-      {msg && <p className="text-sm text-slate-700">{msg}</p>}
+      {msg && <p className="text-sm text-navy-700">{msg}</p>}
     </div>
   )
 }

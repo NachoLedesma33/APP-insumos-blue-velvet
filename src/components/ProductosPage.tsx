@@ -65,20 +65,20 @@ export default function ProductosPage() {
     <>
       <form onSubmit={save} className="mt-4 space-y-3">
         <div className="grid gap-3 md:grid-cols-3">
-          <input className="rounded border px-3 py-2" placeholder="Nombre comercial" value={name} onChange={(e) => setName(e.target.value)} required />
-          <select className="rounded border px-3 py-2" value={recetaId} onChange={(e) => setRecetaId(e.target.value)} required>
+          <input className="rounded-xl border px-3 py-2" placeholder="Nombre comercial" value={name} onChange={(e) => setName(e.target.value)} required />
+          <select className="rounded-xl border px-3 py-2" value={recetaId} onChange={(e) => setRecetaId(e.target.value)} required>
             <option value="">Receta</option>
             {recetas.map((r) => <option key={r.id} value={r.id}>{r.name}</option>)}
           </select>
-          <input className="rounded border px-3 py-2" placeholder="Presentación" value={presentation} onChange={(e) => setPresentation(e.target.value)} />
+          <input className="rounded-xl border px-3 py-2" placeholder="Presentación" value={presentation} onChange={(e) => setPresentation(e.target.value)} />
         </div>
         <div className="grid gap-3 md:grid-cols-4">
-          <select className="rounded border px-3 py-2" value={method} onChange={(e) => setMethod(e.target.value as any)}>
+          <select className="rounded-xl border px-3 py-2" value={method} onChange={(e) => setMethod(e.target.value as any)}>
             <option value="manual">Manual</option><option value="margen">Margen</option><option value="recargo">Recargo</option>
           </select>
-          <input className="rounded border px-3 py-2" placeholder="Objetivo %" type="number" value={target} onChange={(e) => setTarget(e.target.value)} />
-          <input className="rounded border px-3 py-2" placeholder="Precio venta" type="number" value={salePrice} onChange={(e) => setSalePrice(e.target.value)} />
-          <div className="rounded border px-3 py-2 text-sm">Costo unit: {formatARS(cost)}</div>
+          <input className="rounded-xl border px-3 py-2" placeholder="Objetivo %" type="number" value={target} onChange={(e) => setTarget(e.target.value)} />
+          <input className="rounded-xl border px-3 py-2" placeholder="Precio venta" type="number" value={salePrice} onChange={(e) => setSalePrice(e.target.value)} />
+          <div className="rounded-xl border px-3 py-2 text-sm">Costo unit: {formatARS(cost)}</div>
         </div>
         {cost > 0 && (
           <div className="text-sm space-y-1">
@@ -86,7 +86,7 @@ export default function ProductosPage() {
             <p>Sugerido por margen {target}%: {formatARS(suggestedMargin)}</p>
           </div>
         )}
-        <button className="rounded bg-slate-900 px-3 py-2 text-white" type="submit">Guardar producto</button>
+        <button className="rounded-xl bg-navy-800 px-3 py-2 text-white" type="submit">Guardar producto</button>
       </form>
 
       <table className="mt-6 w-full text-left text-sm">

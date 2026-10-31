@@ -73,38 +73,39 @@ export default function App() {
   }
 
   return (
-    <main className="mx-auto max-w-4xl p-6 font-sans">
-      <h1 className="text-2xl font-semibold text-slate-900">Costita</h1>
+    <main className="mx-auto max-w-6xl p-6 font-body bg-cream-50 min-h-screen">
+      <h1 className="text-3xl font-semibold text-navy-800">Blue Velvet Insumos</h1>
+      <p className="text-sm text-silver-500">Gestión de costos, recetas y stock</p>
       <nav className="mt-4 flex flex-wrap gap-2">
-        <button className={`rounded px-3 py-1 ${tab === 'dashboard' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('dashboard')}>Inicio</button>
-        <button className={`rounded px-3 py-1 ${tab === 'calc' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('calc')}>Calculadora</button>
-        <button className={`rounded px-3 py-1 ${tab === 'mp' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('mp')}>Materias primas</button>
-        <button className={`rounded px-3 py-1 ${tab === 'insumos' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('insumos')}>Insumos</button>
-        <button className={`rounded px-3 py-1 ${tab === 'recetas' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('recetas')}>Recetas</button>
-        <button className={`rounded px-3 py-1 ${tab === 'productos' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('productos')}>Productos</button>
-        <button className={`rounded px-3 py-1 ${tab === 'stock' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('stock')}>Stock</button>
-        <button className={`rounded px-3 py-1 ${tab === 'reportes' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('reportes')}>Reportes</button>
-        <button className={`rounded px-3 py-1 ${tab === 'config' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('config')}>Configuración</button>
-        <button className={`rounded px-3 py-1 ${tab === 'produccion' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('produccion')}>Producción</button>
-        <button className={`rounded px-3 py-1 ${tab === 'precios' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('precios')}>Precios</button>
-        <button className={`rounded px-3 py-1 ${tab === 'compras' ? 'bg-slate-900 text-white' : 'bg-slate-100'}`} onClick={() => setTab('compras')}>Compras</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'dashboard' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('dashboard')}>Inicio</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'calc' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('calc')}>Calculadora</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'mp' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('mp')}>Materias primas</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'insumos' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('insumos')}>Insumos</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'recetas' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('recetas')}>Recetas</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'productos' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('productos')}>Productos</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'stock' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('stock')}>Stock</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'reportes' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('reportes')}>Reportes</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'config' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('config')}>Configuración</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'produccion' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('produccion')}>Producción</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'precios' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('precios')}>Precios</button>
+        <button className={`rounded-xl px-3 py-1 ${tab === 'compras' ? 'bg-navy-800 text-white' : 'bg-silver-100'}`} onClick={() => setTab('compras')}>Compras</button>
       </nav>
 
       {tab === 'dashboard' && <DashboardPage />}
       {tab === 'calc' && (
         <>
           <section className="mt-4 grid gap-3">
-            <label className="flex flex-col gap-1">Precio compra<input className="rounded border px-3 py-2" value={price} onChange={(e) => setPrice(e.target.value)} /></label>
-            <label className="flex flex-col gap-1">Cantidad compra<div className="flex gap-2"><input className="flex-1 rounded border px-3 py-2" value={qty} onChange={(e) => setQty(e.target.value)} /><select className="rounded border px-3 py-2" value={unit} onChange={(e) => setUnit(e.target.value as 'kg' | 'g')}><option value="kg">kg</option><option value="g">g</option></select></div></label>
-            <label className="flex flex-col gap-1">Cantidad usada (g)<input className="rounded border px-3 py-2" value={used} onChange={(e) => setUsed(e.target.value)} /></label>
-            <label className="flex flex-col gap-1">Rendimiento (unidades)<input className="rounded border px-3 py-2" value={yieldQty} onChange={(e) => setYieldQty(e.target.value)} /></label>
-            <label className="flex flex-col gap-1">Recargo %<input className="rounded border px-3 py-2" value={markup} onChange={(e) => setMarkup(e.target.value)} /></label>
+            <label className="flex flex-col gap-1">Precio compra<input className="rounded-xl border px-3 py-2" value={price} onChange={(e) => setPrice(e.target.value)} /></label>
+            <label className="flex flex-col gap-1">Cantidad compra<div className="flex gap-2"><input className="flex-1 rounded-xl border px-3 py-2" value={qty} onChange={(e) => setQty(e.target.value)} /><select className="rounded-xl border px-3 py-2" value={unit} onChange={(e) => setUnit(e.target.value as 'kg' | 'g')}><option value="kg">kg</option><option value="g">g</option></select></div></label>
+            <label className="flex flex-col gap-1">Cantidad usada (g)<input className="rounded-xl border px-3 py-2" value={used} onChange={(e) => setUsed(e.target.value)} /></label>
+            <label className="flex flex-col gap-1">Rendimiento (unidades)<input className="rounded-xl border px-3 py-2" value={yieldQty} onChange={(e) => setYieldQty(e.target.value)} /></label>
+            <label className="flex flex-col gap-1">Recargo %<input className="rounded-xl border px-3 py-2" value={markup} onChange={(e) => setMarkup(e.target.value)} /></label>
           </section>
           <section className="mt-6 space-y-1">
             <p>Costo ingrediente: {formatARS(cost)}</p>
             <p>Costo por unidad: {formatARS(unitCostVal)}</p>
             <p>Precio sugerido: {formatARS(salePrice)}</p>
-            {ipc && <p className="text-sm text-slate-500">IPC último ({ipc.date}): {ipc.value.toFixed(2)}</p>}
+            {ipc && <p className="text-sm text-silver-500">IPC último ({ipc.date}): {ipc.value.toFixed(2)}</p>}
           </section>
         </>
       )}
@@ -121,14 +122,14 @@ export default function App() {
       {tab === 'mp' && (
         <>
           <form onSubmit={addMp} className="mt-4 grid gap-3 md:grid-cols-5">
-            <input className="rounded border px-3 py-2" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} required />
-            <input className="rounded border px-3 py-2" placeholder="Precio" type="number" value={mpPrice} onChange={(e) => setMpPrice(e.target.value)} required />
-            <input className="rounded border px-3 py-2" placeholder="Cantidad" type="number" value={mpQty} onChange={(e) => setMpQty(e.target.value)} required />
-            <select className="rounded border px-3 py-2" value={mpUnit} onChange={(e) => setMpUnit(e.target.value as Unit)}>
+            <input className="rounded-xl border px-3 py-2" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} required />
+            <input className="rounded-xl border px-3 py-2" placeholder="Precio" type="number" value={mpPrice} onChange={(e) => setMpPrice(e.target.value)} required />
+            <input className="rounded-xl border px-3 py-2" placeholder="Cantidad" type="number" value={mpQty} onChange={(e) => setMpQty(e.target.value)} required />
+            <select className="rounded-xl border px-3 py-2" value={mpUnit} onChange={(e) => setMpUnit(e.target.value as Unit)}>
               <option value="kg">kg</option><option value="g">g</option><option value="L">L</option><option value="ml">ml</option><option value="u">u</option>
             </select>
-            <input className="rounded border px-3 py-2" placeholder="Stock" type="number" value={mpStock} onChange={(e) => setMpStock(e.target.value)} />
-            <button className="rounded bg-slate-900 px-3 py-2 text-white md:col-span-5" type="submit">Agregar materia prima</button>
+            <input className="rounded-xl border px-3 py-2" placeholder="Stock" type="number" value={mpStock} onChange={(e) => setMpStock(e.target.value)} />
+            <button className="rounded-xl bg-navy-800 px-3 py-2 text-white md:col-span-5" type="submit">Agregar materia prima</button>
           </form>
           <table className="mt-6 w-full text-left text-sm">
             <thead><tr><th>Nombre</th><th>Precio</th><th>Cant.</th><th>Unidad</th><th>Costo base</th><th>Stock</th></tr></thead>
