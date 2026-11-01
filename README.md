@@ -1,6 +1,21 @@
-# APP-insumos-blue-velvet
+# Blue Velvet Insumos
 
-Costita — gestión de costos, recetas, insumos y stock.
+Gestión de costos, recetas, insumos y stock para emprendimientos.
+
+## Características
+
+- Dashboard con métricas, alertas de stock bajo y recetas incompletas.
+- Materias primas e insumos: alta, stock, costos normalizados por unidad base.
+- Recetas con ingredientes, rendimiento, costos adicionales y cálculo automático.
+- Productos con precio de venta por margen o recargo, ganancia y margen real.
+- Stock con movimientos (ingreso, ajuste, merma) y alertas.
+- Compras que actualizan stock y costo de referencia.
+- Confirmación de producción con descuento automático de existencias.
+- Actualización de precios con historial.
+- Exportación CSV y backup/restauración JSON.
+- Integración de IPC mensual (Argentina) para contexto inflacionario.
+- Tema claro/oscuro.
+- Diseño Blue Velvet (navy/cream/silver, Playfair + Inter).
 
 ## Desarrollo
 
@@ -22,15 +37,10 @@ npm run preview
 npm test
 ```
 
-## Variables de entorno
-
-Copiar `.env.example` a `.env.local`. Solo variables `VITE_` públicas.
-
 ## Despliegue (Vercel)
 
 - Build command: `npm run build`
 - Output directory: `dist`
-- Framework: Vite
 - Configurado en `vercel.json`.
 
-La app usa localStorage para datos; para producción multiusuario configurar Supabase (Postgres + Auth + RLS) y reemplazar la capa de repositorio.
+Los datos se guardan en `localStorage`. Para multiusuario, migrar a Supabase (Postgres + Auth + RLS).
